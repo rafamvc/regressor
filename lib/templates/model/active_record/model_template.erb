@@ -2,31 +2,31 @@ require 'rails_helper'
 
 RSpec.describe <%= @model.model %>, regressor: true do
 
-  # === Relations ===
+  <%= '# === Relations ===' unless Regressor.configuration.disable_comment_headers %>
   <%= @model.belong_to_relations %>
   <%= @model.has_one_relations %>
   <%= @model.has_many_relations %>
 
-  # === Nested Attributes ===
+  <%= '# === Nested Attributes ===' unless Regressor.configuration.disable_comment_headers %>
   <%= @model.nested_attributes %>
 
-  # === Database (Columns) ===
+  <%= '# === Database (Columns) ===' unless Regressor.configuration.disable_comment_headers %>
   <%= @model.columns %>
 
-  # === Database (Indexes) ===
+  <%= '# === Database (Indexes) ===' unless Regressor.configuration.disable_comment_headers %>
   <%= @model.indices %>
 
-  # === Validations (Length) ===
+  <%= '# === Validations (Length) ===' unless Regressor.configuration.disable_comment_headers %>
   <%= @model.length_validators %>
 
-  # === Validations (Presence) ===
+  <%= '# === Validations (Presence) ===' unless Regressor.configuration.disable_comment_headers %>
   <%= @model.presence_validators %>
 
-  # === Validations (Numericality) ===
+  <%= '# === Validations (Numericality) ===' unless Regressor.configuration.disable_comment_headers %>
   <%= @model.numericality_validators %>
 
   <% if Regressor.configuration.include_enums %>
-  # === Enums ===
+  <%= '# === Enums ===' unless Regressor.configuration.disable_comment_headers %>
   <%= @model.enums %>
   <% end %>
 end

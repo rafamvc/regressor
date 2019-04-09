@@ -15,7 +15,8 @@ module Regressor
                   :excluded_models,
                   :excluded_controllers,
                   :include_enums,
-                  :excluded_features
+                  :excluded_features,
+                  :disable_comment_headers
 
     def initialize
       @regression_path = 'spec/models/regression'
@@ -25,6 +26,7 @@ module Regressor
       @excluded_controllers = []
       @excluded_features = []
       @include_enums = true
+      @disable_comment_headers = false
     end
 
   end
