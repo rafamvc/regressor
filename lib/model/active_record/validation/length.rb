@@ -3,6 +3,7 @@ module Regressor
     module Validation
       module Length
         def length_validators
+          return if Regressor.configuration.excluded_features.includes("#{self.class}.#{__method__}")
           extract_validators(::ActiveModel::Validations::LengthValidator).flatten.map do |validator|
             specs = []
             specs.concat generate_length_examples(validator, validator.options[:minimum]-1, validator.options[:minimum]) if validator.options[:minimum]

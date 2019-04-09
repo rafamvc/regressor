@@ -14,7 +14,8 @@ module Regressor
                   :regression_factory_path,
                   :excluded_models,
                   :excluded_controllers,
-                  :include_enums
+                  :include_enums,
+                  :excluded_features
 
     def initialize
       @regression_path = 'spec/models/regression'
@@ -22,7 +23,9 @@ module Regressor
       @regression_factory_path = 'spec/factories'
       @excluded_models = []
       @excluded_controllers = []
+      @excluded_features = []
       @include_enums = true
     end
+
   end
 end
