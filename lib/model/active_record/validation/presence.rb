@@ -3,7 +3,7 @@ module Regressor
     module Validation
       module Presence
         def presence_validators
-          return if Regressor.configuration.excluded_features.includes("#{self.class}.#{__method__}")
+          return if Regressor.configuration.excluded_features.include?("#{self.class}.#{__method__}")
           extract_validators(::ActiveRecord::Validations::PresenceValidator).flatten.map do |validator|
             specs = validator.attributes.map do |attribute|
               "it { is_expected.to validate_presence_of :#{attribute} }"

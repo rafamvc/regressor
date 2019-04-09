@@ -2,7 +2,7 @@ module Regressor
   module Model
     module Enum
       def enums
-        return if Regressor.configuration.excluded_features.includes("#{self.class}.#{__method__}")
+        return if Regressor.configuration.excluded_features.include?("#{self.class}.#{__method__}")
         enum_specs = []
         @model.constantize.defined_enums.each do |enum_k, enum_v|
           enum_values = enum_v.map do |key, value|

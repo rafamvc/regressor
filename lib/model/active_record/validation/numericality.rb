@@ -3,6 +3,7 @@ module Regressor
     module Validation
       module Numericality
         def numericality_validators
+          return if Regressor.configuration.excluded_features.include?("#{self.class}.#{__method__}")
           extract_validators(::ActiveModel::Validations::NumericalityValidator).flatten.map do |validator|
             specs = []
             if validator.options.blank?
